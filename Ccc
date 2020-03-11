@@ -1,0 +1,83 @@
+Абдулла Магомедшарипов, вчера в 23:31
+1.
+void z1(){
+   int max, min, x;
+   cin » x;
+   max = x;
+   min = x;
+   for (int i = 1; i <= 15; i++)
+   {
+       cin » x;
+       if (x > max && i%2==0) max = x;
+       if (x < min && i%2!=0) min = x;
+   }
+   cout « max « " " « min;
+}
+
+Абдулла Магомедшарипов, вчера в 22:55
+5. Фибоначчи
+С циклом
+int fib(int n){
+   int a = 0, b = 1, c;
+   for (int i = 0; i < n - 2; i++)
+   {
+      c = b; b += a; a = c;
+   }
+   return b;
+}
+
+С рекурсией
+int fib(int n, int a = 0, int b = 1){
+   if (n == 1) return a;
+   else if (n == 2) return b;
+   return fib(n-1, b, b+a);
+}
+
+Абдулла Магомедшарипов, вчера в 22:52
+4. Факториал
+С циклом
+int fact(int n){
+  int s = 1;
+  for (int i = 1; i <= n; i++)
+    s*= i;
+  return s;
+}
+
+С рекурсией
+int fact(int n){
+   if (n <= 2) return n;
+   return n * fact(n-1);
+}
+
+Абдулла Магомедшарипов, сегодня в 0:03
+3.
+int z2(){
+   cin » n;
+   switch (n)
+   {
+       case 10000:
+              n *= 0.1;
+              break;
+       case 20000:
+              n *= 0.2;
+              break;
+       case 40000:
+              n *= 0.4;
+              break;
+   }
+   return n;
+}
+
+Абдулла Магомедшарипов, сегодня в 0:15
+2.
+float z2(){
+  int s = 0, c = 0, x;
+  for (int i = 0; i < 10; i++){
+    cin » x;
+    if (x % 3 == 0){
+         s += x;
+         c++;
+    }
+  }
+  return (float) s/c
+}
