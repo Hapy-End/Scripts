@@ -30,15 +30,22 @@ int fact(int a){
 
 // Задания
 void z1(){
-    // ...
-}
-
-void z16(){
-    // ...
-}
-
-void z22(){
-    // ...
+	const int m = 3, n = 10;
+	int k, p, B[4] = {3,7,11,16}, c;
+	cin >> k >> p;
+    for (int i = 0; i < m; i++){
+    	int A[n];
+    	c = 0;
+    	for (int j = 0; j < n; j++){
+    		A[j] = irand(0,30);
+    		for (int z =0; z < sizeof(B)/sizeof(int);z++)
+    		{
+    			if (j != k && j != p && A[j] == B[z]) c++;
+    		}
+    		cout << A[j] << " ";
+    	}
+    	cout << " -  "<< c<<"\n";
+    }
 }
 
 void z2(){
@@ -90,7 +97,7 @@ void z5(){
     {
         for (int j = 0; j < n; j++)
         {
-            if (i == 0 || j == 0 || i == n-1 || j == n-1 || 
+            if (i == 0 || j == 0 || i == n-1 || j == n-1 ||
                (i >= 2 && i <= n-1-2 && j >= 2 && j <= n-1-2 && (i != n/2 || j != n/2)))
             A[i][j] = 1;
             else A[i][j] = 0;
@@ -196,7 +203,7 @@ void z12(){
         for (int j = 0; j < n; j++)
         {
             if (m == 0) A[j][i] = i * n + j + 1;
-            else A[j][i] = i * n + n - j; 
+            else A[j][i] = i * n + n - j;
         }
         if (m == 0) m = 1; else m = 0;
     }
@@ -280,6 +287,41 @@ void z15(){
     cout << c;
 }
 
+void z16(){
+    int A[10][10] = {{1,1,0,1,1,1,0,0,0,1},
+                     {1,1,1,0,1,0,0,1,1,0},
+                     {0,0,0,0,0,0,1,1,1,0},
+                     {0,0,1,1,0,0,0,0,0,0},
+                     {1,0,1,1,0,1,1,0,1,0},
+                     {0,0,0,0,0,1,1,0,1,0},
+                     {0,0,0,0,0,0,0,0,1,0},
+                     {0,0,0,0,0,0,0,0,0,0},
+                     {1,1,0,1,0,1,0,0,0,1},
+                     {1,1,0,0,0,0,0,1,1,0}},
+    c=0, m=0, n =0;
+    for (int i = 0; i < 10; i++)
+    {
+        m = 0;
+        n = 0;
+        for (int j = 0; j < 10; j++)
+        {
+        	cout << A[i][j] << " ";
+        	if (A[i][j]==1){
+        		if (i!=9 && A[i+1][j]==1){
+        			n+=1;
+        			if (A[i+1][j+1]==1 &&  A[i][j+1]==1)
+        			n--;
+        		}
+        		if ((j!=9&& A[i][j+1]!=1) || j == 9)
+        			m+=1;
+        	}
+        }
+        c += m-n;
+        cout <</* " - "<< m << " - " << n << */endl;
+    }
+    cout << endl << "Pyatna: "<< c<< endl;
+}
+
 void z17(){
     double e = 0.001, x = 1, sum = 0, psum = 0;
     for (int i = 0;;i++){
@@ -351,6 +393,24 @@ void z21(){
         if (m >= 0) break;
     }
     cout << m;
+}
+
+void z22(){
+    const int N = 7;
+    int a[N][N];
+    for (int i = 0; i < N; i++){
+    	for (int j = 0; j < N; j++){
+    		a[i][j] = irand(10,20);
+    	}
+    }
+    print7(a);
+    for (int i = 0; i < N; i++){
+    	for (int j = 0; j < N-i-1; j++){
+    		//cout << a[j][i] * a[N-i-1][N-j-1] << " ";
+    		a[i][j] = a[N-i-1][N-j-1] = a[j][i] * a[N-i-1][N-j-1];
+    	}
+    }
+    print7(a);
 }
 
 void z23(){
